@@ -1,0 +1,47 @@
+{
+    "name": "Focus Timer - Pomodoro Technique",
+    "short_name": "Focus Timer",
+    "description": "A professional Pomodoro timer to boost your productivity with customizable sessions, statistics, and themes.",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ff6b6b",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjQiIGZpbGw9IiNmZjZiNmIiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPgo8cGF0aCBkPSJNMTIgMkM2LjQ4IDIgMiA2LjQ4IDIgMTJzNC40OCAxMCAxMCAxMCAxMC00LjQ4IDEwLTEwUzE3LjUyIDIgMTIgMnptMCAxOGMtNC40MSAwLTgtMy41OS04LThzMy41OS04IDgtOCA4IDMuNTkgOCA4LTMuNTkgOC04IDh6bTAtMTRjLS41NSAwLTEgLjQ1LTEgMXY3YzAgLjU1LjQ1IDEgMSAxcy0xLS40NS0xLTFWN2MwLS41NS40NS0xIDEtMXoiLz4KPC9zdmc+Cjwvc3ZnPgo=",
+            "sizes": "48x48",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCA5NiA5NiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iNDgiIGN5PSI0OCIgcj0iNDgiIGZpbGw9IiNmZjZiNmIiLz4KPHN2ZyB4PSIxNiIgeT0iMTYiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMC0xNGMtLjU1IDAtMSAuNDUtMSAxdjdjMCAuNTUuNDUgMSAxIDFzLTEtLjQ1LTEtMVY3YzAtLjU1LjQ1LTEgMS0xeiIvPgo8L3N2Zz4KPC9zdmc+Cg==",
+            "sizes": "96x96",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9Ijk2IiBjeT0iOTYiIHI9Ijk2IiBmaWxsPSIjZmY2YjZiIi8+CjxzdmcgeD0iMzIiIHk9IjMyIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMC0xNGMtLjU1IDAtMSAuNDUtMSAxdjdjMCAuNTUuNDUgMSAxIDFzLTEtLjQ1LTEtMVY3YzAtLjU1LjQ1LTEgMS0xeiIvPgo8L3N2Zz4KPC9zdmc+Cg==",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjU2IiBmaWxsPSIjZmY2YjZiIi8+CjxzdmcgeD0iODUiIHk9Ijg1IiB3aWR0aD0iMzQyIiBoZWlnaHQ9IjM0MiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+CjxwYXRoIGQ9Ik0xMiAyQzYuNDggMiAyIDYuNDggMiAxMnM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTBTMTcuNTIgMiAxMiAyem0wIDE4Yy00LjQxIDAtOC0zLjU5LTgtOHMzLjU5LTggOC04IDggMy41OSA4IDgtMy41OSA4LTggOHptMC0xNGMtLjU1IDAtMSAuNDUtMSAxdjdjMCAuNTUuNDUgMSAxIDFzLTEtLjQ1LTEtMVY3YzAtLjU1LjQ1LTEgMS0xeiIvPgo8L3N2Zz4KPC9zdmc+Cg==",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ],
+    "categories": [
+        "productivity",
+        "utilities"
+    ],
+    "screenshots": [
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIHZpZXdCb3g9IjAgMCAxMjgwIDcyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyODAiIGhlaWdodD0iNzIwIiBmaWxsPSIjZjhmOWZhIi8+Cjx0ZXh0IHg9IjY0MCIgeT0iMzYwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiNmZjZiNmIiPkZvY3VzIFRpbWVyPC90ZXh0Pgo8L3N2Zz4K",
+            "sizes": "1280x720",
+            "type": "image/svg+xml",
+            "form_factor": "wide"
+        }
+    ]
+}

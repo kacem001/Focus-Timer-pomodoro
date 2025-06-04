@@ -1,0 +1,184 @@
+/* Theme Styles */
+
+/* Classic Theme (Default) */
+.theme-classic {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #45b7d1;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --border-color: #e9ecef;
+}
+
+/* Dark Theme */
+.theme-dark {
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #45b7d1;
+    --background-color: #1a1a1a;
+    --surface-color: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+}
+
+.theme-dark .progress-ring-background {
+    stroke: #404040;
+}
+
+.theme-dark .chart-bar {
+    background: #ff6b6b;
+}
+
+/* Forest Theme */
+.theme-forest {
+    --primary-color: #27ae60;
+    --secondary-color: #2ecc71;
+    --accent-color: #16a085;
+    --background-color: #f0f8f0;
+    --surface-color: #ffffff;
+    --text-primary: #1e3a2e;
+    --text-secondary: #5d8a66;
+    --border-color: #d5e8d5;
+}
+
+.theme-forest .progress-ring-progress {
+    stroke: #27ae60;
+}
+
+.theme-forest .stat-value,
+.theme-forest .stat-number,
+.theme-forest .time-display {
+    color: #27ae60;
+}
+
+/* Ocean Theme */
+.theme-ocean {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #16a085;
+    --background-color: #f0f8ff;
+    --surface-color: #ffffff;
+    --text-primary: #1e3a5f;
+    --text-secondary: #5d8aa8;
+    --border-color: #d5e8ff;
+}
+
+.theme-ocean .progress-ring-progress {
+    stroke: #3498db;
+}
+
+.theme-ocean .stat-value,
+.theme-ocean .stat-number,
+.theme-ocean .time-display {
+    color: #3498db;
+}
+
+/* Sunset Theme */
+.theme-sunset {
+    --primary-color: #e74c3c;
+    --secondary-color: #f39c12;
+    --accent-color: #d35400;
+    --background-color: #fff8f0;
+    --surface-color: #ffffff;
+    --text-primary: #5f1e1e;
+    --text-secondary: #a85d5d;
+    --border-color: #ffd5d5;
+}
+
+.theme-sunset .progress-ring-progress {
+    stroke: #e74c3c;
+}
+
+.theme-sunset .stat-value,
+.theme-sunset .stat-number,
+.theme-sunset .time-display {
+    color: #e74c3c;
+}
+
+/* Minimal Theme */
+.theme-minimal {
+    --primary-color: #2c3e50;
+    --secondary-color: #34495e;
+    --accent-color: #7f8c8d;
+    --background-color: #ffffff;
+    --surface-color: #f8f9fa;
+    --text-primary: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --border-color: #ecf0f1;
+}
+
+.theme-minimal .progress-ring-progress {
+    stroke: #2c3e50;
+}
+
+.theme-minimal .stat-value,
+.theme-minimal .stat-number,
+.theme-minimal .time-display {
+    color: #2c3e50;
+}
+
+.theme-minimal .timer-container,
+.theme-minimal .stat-card,
+.theme-minimal .tasks-section {
+    border: 1px solid var(--border-color);
+}
+
+/* Theme-specific animations */
+.theme-forest .celebrate {
+    animation: forestCelebrate 0.6s ease-in-out 3;
+}
+
+@keyframes forestCelebrate {
+
+    0%,
+    100% {
+        transform: scale(1);
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.05);
+        filter: hue-rotate(30deg);
+    }
+}
+
+.theme-ocean .celebrate {
+    animation: oceanCelebrate 0.6s ease-in-out 3;
+}
+
+@keyframes oceanCelebrate {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.02) rotate(1deg);
+    }
+
+    75% {
+        transform: scale(1.02) rotate(-1deg);
+    }
+}
+
+.theme-sunset .celebrate {
+    animation: sunsetCelebrate 0.8s ease-in-out 2;
+}
+
+@keyframes sunsetCelebrate {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(231, 76, 60, 0);
+    }
+
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
+    }
+}

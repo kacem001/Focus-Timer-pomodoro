@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer - Pomodoro Technique</title>
+    <meta name="description"
+        content="A professional Pomodoro timer to boost your productivity with customizable sessions, statistics, and themes.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/themes.css">
+
+    <!-- Manifest for PWA -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Meta theme color -->
+    <meta name="theme-color" content="#ff6b6b">
+</head>
+
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <h1><img src="assets/images/logo.png" alt="Focus Timer Logo"
+                            style="width: 32px; height: 32px; vertical-align: middle; margin-right: 8px;">Focus Timer
+                    </h1>
+                </div>
+                <nav class="nav">
+                    <button id="statsBtn" class="nav-btn">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>Stats</span>
+                    </button>
+                    <button id="settingsBtn" class="nav-btn">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </button>
+                    <button id="themeBtn" class="nav-btn">
+                        <i class="fas fa-palette"></i>
+                        <span>Themes</span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <div class="container">
+                <!-- Timer Section -->
+                <section class="timer-section">
+                    <div class="timer-container">
+                        <div class="timer-display">
+                            <div class="session-type">
+                                <span id="sessionType">Focus Time</span>
+                                <span id="sessionNumber">Session 1</span>
+                            </div>
+
+                            <div class="time-display">
+                                <span id="timeDisplay">25:00</span>
+                            </div>
+
+                            <div class="progress-ring">
+                                <svg class="progress-ring-svg" width="300" height="300">
+                                    <circle class="progress-ring-background" cx="150" cy="150" r="135" />
+                                    <circle class="progress-ring-progress" cx="150" cy="150" r="135" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="timer-controls">
+                            <button id="startBtn" class="control-btn primary">
+                                <i class="fas fa-play"></i>
+                                <span>Start</span>
+                            </button>
+                            <button id="pauseBtn" class="control-btn secondary" disabled>
+                                <i class="fas fa-pause"></i>
+                                <span>Pause</span>
+                            </button>
+                            <button id="resetBtn" class="control-btn neutral">
+                                <i class="fas fa-redo"></i>
+                                <span>Reset</span>
+                            </button>
+                            <button id="skipBtn" class="control-btn neutral">
+                                <i class="fas fa-forward"></i>
+                                <span>Skip</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Stats -->
+                <section class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="todayPomodoros">0</div>
+                        <div class="stat-label">Today's Pomodoros</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalTime">0h 0m</div>
+                        <div class="stat-label">Total Focus Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="currentStreak">0</div>
+                        <div class="stat-label">Current Streak</div>
+                    </div>
+                </section>
+
+                <!-- Tasks Section -->
+                <section class="tasks-section">
+                    <h2>Today's Tasks</h2>
+                    <div class="task-input">
+                        <input type="text" id="taskInput" placeholder="Add a task for this session...">
+                        <button id="addTaskBtn" class="add-task-btn">
+                            <i class="fas fa-plus"></i>
+                            <span>Add</span>
+                        </button>
+                    </div>
+                    <ul id="taskList" class="task-list"></ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- Settings Modal -->
+        <div id="settingsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-cog"></i> Settings</h2>
+                    <button class="close-btn" data-modal="settings">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="setting-group">
+                        <label for="focusTime">Focus Time (minutes)</label>
+                        <input type="number" id="focusTime" min="1" max="60" value="25">
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="shortBreak">Short Break (minutes)</label>
+                        <input type="number" id="shortBreak" min="1" max="30" value="5">
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="longBreak">Long Break (minutes)</label>
+                        <input type="number" id="longBreak" min="1" max="60" value="15">
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="sessionsUntilLongBreak">Sessions Until Long Break</label>
+                        <input type="number" id="sessionsUntilLongBreak" min="2" max="10" value="4">
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoStartBreaks"> Auto-start breaks
+                        </label>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="autoStartPomodoros"> Auto-start pomodoros
+                        </label>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="tickingSound"> Ticking sound
+                        </label>
+                    </div>
+
+                    <div class="setting-group">
+                        <label for="volume">Notification Volume</label>
+                        <input type="range" id="volume" min="0" max="100" value="50">
+                        <span id="volumeValue">50%</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="saveSettings" class="btn primary">
+                        <i class="fas fa-save"></i>
+                        <span>Save Settings</span>
+                    </button>
+                    <button id="resetSettings" class="btn secondary">
+                        <i class="fas fa-undo"></i>
+                        <span>Reset to Default</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Modal -->
+        <div id="statsModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-chart-bar"></i> Statistics</h2>
+                    <button class="close-btn" data-modal="stats">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalPomodoros">0</div>
+                            <div class="stat-desc">Total Pomodoros</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalFocusTime">0h 0m</div>
+                            <div class="stat-desc">Total Focus Time</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="averageSession">25m</div>
+                            <div class="stat-desc">Average Session</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="longestStreak">0</div>
+                            <div class="stat-desc">Longest Streak</div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h3>Weekly Progress</h3>
+                        <div id="weeklyChart" class="chart"></div>
+                    </div>
+
+                    <div class="achievements">
+                        <h3>🏆 Achievements</h3>
+                        <div id="achievementsList" class="achievements-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Theme Modal -->
+        <div id="themeModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-palette"></i> Choose Theme</h2>
+                    <button class="close-btn" data-modal="theme">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="theme-grid">
+                        <div class="theme-option" data-theme="classic">
+                            <div class="theme-preview classic-preview"></div>
+                            <span>🍅 Classic</span>
+                        </div>
+                        <div class="theme-option" data-theme="dark">
+                            <div class="theme-preview dark-preview"></div>
+                            <span>🌙 Dark</span>
+                        </div>
+                        <div class="theme-option" data-theme="forest">
+                            <div class="theme-preview forest-preview"></div>
+                            <span>🌲 Forest</span>
+                        </div>
+                        <div class="theme-option" data-theme="ocean">
+                            <div class="theme-preview ocean-preview"></div>
+                            <span>🌊 Ocean</span>
+                        </div>
+                        <div class="theme-option" data-theme="sunset">
+                            <div class="theme-preview sunset-preview"></div>
+                            <span>🌅 Sunset</span>
+                        </div>
+                        <div class="theme-option" data-theme="minimal">
+                            <div class="theme-preview minimal-preview"></div>
+                            <span>⚪ Minimal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notification -->
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/logo.png" alt="Logo" class="footer-logo-img">
+                    <span>Focus Timer</span>
+                </div>
+                <div class="footer-info">
+                    <p>Crafted with 🍅 by <strong>Kacem001</strong></p>
+                    <p>Boost your productivity with the Pomodoro Technique</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/kacem001" class="social-btn github" title="GitHub" target="_blank"
+                        rel="noopener">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.facebook.com/kacem.minou.la" class="social-btn facebook"
+                        title="Facebook (Coming Soon)">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/kacem_la?igsh=d2lmMmN0YmlvdWli" class="social-btn instagram"
+                        title="Instagram (Coming Soon)">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-btn tiktok disabled" title="TikTok (Coming Soon)">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="social-btn linkedin disabled" title="LinkedIn (Coming Soon)">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://t.me/Kaceml" class="social-btn telegram" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Focus Timer. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/sounds.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/stats.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
